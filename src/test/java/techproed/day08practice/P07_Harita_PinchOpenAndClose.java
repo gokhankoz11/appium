@@ -26,9 +26,10 @@ public class P07_Harita_PinchOpenAndClose extends HaritalarBaseTest {
         WebElement aramaMotoru = driver.findElement(AppiumBy.accessibilityId("Burada arayın"));
         clickGesture(driver, aramaMotoru);
         WebElement metinArama = driver.findElement(AppiumBy.id("com.google.android.apps.maps:id/search_omnibox_edit_text"));
-        metinArama.sendKeys("Taj Mahal");
+        metinArama.sendKeys("Rams Park Stadium");
         KeyEvent enter = new KeyEvent(AndroidKey.ENTER);
-        driver.pressKey(enter);
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
+     //   driver.pressKey(enter);
         Thread.sleep(5000);
         driver.executeScript("mobile: pinchOpenGesture", ImmutableMap.of(
                 "left", 330,

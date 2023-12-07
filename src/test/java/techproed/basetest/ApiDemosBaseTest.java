@@ -54,4 +54,7 @@ ExpectedConditions Class'ini kullanabiliriz. Ornegin WebElement'i locate etmek i
 WebDriverWait wait = new WebDriverWait (driver, Duration.ofSeconds(20));
 WebElement element = wait.until(Expected Conditions.visibilityOfElementLocated (By.xpath("...")));
 
+adb -s emulator-5556 shell dumpsys window | find "mCurrentFocus"   -->
+
+
  */
