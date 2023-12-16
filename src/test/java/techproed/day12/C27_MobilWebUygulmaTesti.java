@@ -11,4 +11,5 @@ public class C27_MobilWebUygulmaTesti extends ChromeBrowserBaseTest {
         bekle(2);
     }
 
+
 }

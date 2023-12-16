@@ -3,10 +3,11 @@ import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 public class ReusableMethods {
-
-
-    public void bekle (int second){
+    public void bekle(int second){
         try {
             Thread.sleep(second*1000);
         } catch (InterruptedException e) {
@@ -14,7 +15,6 @@ public class ReusableMethods {
             throw new RuntimeException(e);
         }
     }
-
     public void clickGesture(AndroidDriver driver, WebElement element){
         driver.executeScript("mobile: clickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element).getId()
@@ -68,8 +68,6 @@ public class ReusableMethods {
                 "endY", endY
         ));
     }
-
-
     public void dragGesture(AndroidDriver driver, int startX, int startY, int endX, int endY){
         driver.executeScript("mobile: dragGesture", ImmutableMap.of(
                 "startX", startX,
@@ -78,7 +76,6 @@ public class ReusableMethods {
                 "endY", endY
         ));
     }
-
     public void swipeGesture(AndroidDriver driver, WebElement element, String direction, double percent, int speed){
         driver.executeScript("mobile: swipeGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element).getId(),
@@ -95,7 +92,9 @@ public class ReusableMethods {
                 "speed", speed
         ));
     }
-
-
-
+    //Visible Wait
+    public static void visibleWait(AndroidDriver driver, WebElement element, int sayi) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(sayi));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
 }

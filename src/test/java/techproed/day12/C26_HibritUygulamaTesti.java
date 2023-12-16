@@ -61,5 +61,6 @@ cmd calistir
 appium --allow-insecure chromedriver_autodownload
 kod girdikten sonra testi calistir
 
+chrome://inspect ile lokate alabiliriz
 
  */
